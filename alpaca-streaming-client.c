@@ -134,7 +134,8 @@ int main(int argc, const char **argv)
     struct lws_context_creation_info info;
 
     memset(&info, 0, sizeof info);
-
+    lws_cmdline_option_handle_builtin(argc, argv, &info); /* Applies standard options to the context creation info */
+    
     lwsl_user("Testing alapaca.markets streaming API.\n");
 
     info.options = LWS_SERVER_OPTION_DO_SSL_GLOBAL_INIT;
@@ -142,6 +143,7 @@ int main(int argc, const char **argv)
     info.protocols = protocols;
 
     context = lws_create_context(&info);
+
     if (!context) {
         lwsl_err("lws init failed\n");
         return 1;
