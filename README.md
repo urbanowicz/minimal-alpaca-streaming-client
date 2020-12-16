@@ -1,6 +1,6 @@
-# A minimal client of alpaca.markets streaming API written in C.
+# minimal-alpaca-streaming-client
 
-
+The simplest possible client of alpaca.markets streaming API written in C.
 
 ## Compilation:
 
