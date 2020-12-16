@@ -134,9 +134,8 @@ int main(int argc, const char **argv)
     struct lws_context_creation_info info;
 
     memset(&info, 0, sizeof info);
-    lws_cmdline_option_handle_builtin(argc, argv, &info);
 
-    lwsl_user("Alapaca.markets streaming websockets client\n");
+    lwsl_user("Testing alapaca.markets streaming API.\n");
 
     info.options = LWS_SERVER_OPTION_DO_SSL_GLOBAL_INIT;
     info.port = CONTEXT_PORT_NO_LISTEN; /* we do not run any server */
@@ -147,7 +146,6 @@ int main(int argc, const char **argv)
         lwsl_err("lws init failed\n");
         return 1;
     }
-
     connect_client(context);
 
     while (websocket != NULL)
